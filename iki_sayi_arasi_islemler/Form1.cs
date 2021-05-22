@@ -11,68 +11,43 @@ namespace iki_sayi_arasi_islemler
 {
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
+        public Form1() { InitializeComponent(); }
+        private void Form1_Load(object sender, EventArgs e) { }
+        void ListeyeEkle(object ekle) { listBox1.Items.Add(ekle); }
+        void ListeTemizle() { listBox1.Items.Clear(); }
 
-        }
-        double sayi1, sayi2;
-        bool SayisalKontrolu()
+
+        double sayi1 = 0, sayi2 = 0;
+        bool SayisalKontrol()
         {
-            bool sonuc1, sonuc2;
+            bool sayik1 = false, sayik2 = false;
             try
             {
                 sayi1 = Convert.ToDouble(txt_ilk_sayi.Text);
-                // convert etmeyi denedik. Eğer hata verirse yani sayı girilmemiş ise
-                // formatexception'a düşer ve sayı girilmediğini anlarız
-                sonuc1 = true;
+                sayik1 = true;
             }
             catch (FormatException)
             {
-                MessageBox.Show("İlk sayı alanına sadace rakamlar yazabilirsiniz");
-                sonuc1 = false;
+                MessageBox.Show("İlk sayı alanına girilen değer sayısal bir değer değildir. Lütfen sayısal bir değer giriniz.");
             }
             try
             {
                 sayi2 = Convert.ToDouble(txt_ikinci_sayi.Text);
-                // convert etmeyi denedik. Eğer hata verirse yani sayı girilmemiş ise
-                // formatexception'a düşer ve sayı girilmediğini anlarız
-                sonuc2 = true;
+                sayik2 = true;
             }
             catch (FormatException)
             {
-                MessageBox.Show("İkinci sayı alanına sadace rakamlar yazabilirsiniz");
-                sonuc2 = false;
+                MessageBox.Show("İkinci sayı alanına girilen değer sayısal bir değer değildir. Lütfen sayısal bir değer giriniz.");
             }
-
-            if (sonuc1 && sonuc2)
-            {
-                // her iki parametre de sayı ile işleme devam edeceğiz.
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        void ListeyeEkle(object ekle)
-        {
-            listBox1.Items.Add(ekle);
-        }
-        void ListeTemizle()
-        {
-            listBox1.Items.Clear();
+            return sayik1 && sayik2;
         }
         private void btn_toplam_ver_Click(object sender, EventArgs e)
         {
             ListeTemizle();
-            if (SayisalKontrolu())
+            if (SayisalKontrol())
             {
                 double sonuc = 0;
-                for (int i = Convert.ToInt32(sayi1); i <= sayi2; i++)
+                for (double i = sayi1; i <= sayi2; i++)
                 {
                     sonuc += i;
                     ListeyeEkle(sonuc);
@@ -83,22 +58,51 @@ namespace iki_sayi_arasi_islemler
         private void btn_karelerinin_toplami_Click(object sender, EventArgs e)
         {
             ListeTemizle();
-            if (SayisalKontrolu())
+            if (SayisalKontrol())
             {
                 double sonuc = 0, islem = 0;
-                for (int i = Convert.ToInt32(sayi1); i <= sayi2; i++)
+                for (double i = sayi1; i <= sayi2; i++)
                 {
-                    islem = Math.Pow(i, (Convert.ToInt16(txt_us.Text)));
+                    islem = Math.Pow(i, Convert.ToInt16(txt_us.Text));
                     sonuc += islem;
-                    ListeyeEkle(sonuc + " - " + islem);
+                    ListeyeEkle(sonuc.ToString() + " - " + i.ToString() + " üzeri " + txt_us.Text + " = " + islem.ToString());
                 }
-                ListeyeEkle("Sonuç : " + sonuc.ToString());  
+                ListeyeEkle("Sonuç : " + sonuc.ToString());
             }
         }
 
+        private void btn_asal_olanlari_ver_Click(object sender, EventArgs e)
+        {
+            ListeTemizle();
+            if (SayisalKontrol())
+            {
+                double kontrol = 0, sonuc = 0;
+                for (double i = sayi1; i <= sayi2; i++)
+                {
+                    kontrol = 0;
+                    for (int ii = 2; ii < i; ii++)
+                    {
+                        if (i % ii == 0)
+                        {
+                            kontrol++;
 
+                            break;
+                        }
+                    }
+                    if (kontrol != 0)
+                    {
+                        //ListeyeEkle(i.ToString() + " sayısı ASAL Değildir");
+                    }
+                    else
+                    {
+                        sonuc += i;
+                        ListeyeEkle(i.ToString() + " sayısı ASALdır");
+                    }
 
-
+                }
+                ListeyeEkle("Asalların Toplamaı : " + sonuc.ToString());
+            }
+        }
 
 
 

@@ -41,6 +41,7 @@ namespace iki_sayi_arasi_islemler
             this.btn_karelerinin_toplami = new System.Windows.Forms.Button();
             this.txt_us = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btn_asal_olanlari_ver = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -160,11 +161,24 @@ namespace iki_sayi_arasi_islemler
             this.label5.TabIndex = 10;
             this.label5.Text = "Üs";
             // 
+            // btn_asal_olanlari_ver
+            // 
+            this.btn_asal_olanlari_ver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_asal_olanlari_ver.Location = new System.Drawing.Point(12, 171);
+            this.btn_asal_olanlari_ver.Name = "btn_asal_olanlari_ver";
+            this.btn_asal_olanlari_ver.Size = new System.Drawing.Size(289, 33);
+            this.btn_asal_olanlari_ver.TabIndex = 11;
+            this.btn_asal_olanlari_ver.Text = "ASAL olanları ver";
+            this.btn_asal_olanlari_ver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_asal_olanlari_ver.UseVisualStyleBackColor = true;
+            this.btn_asal_olanlari_ver.Click += new System.EventHandler(this.btn_asal_olanlari_ver_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 498);
+            this.Controls.Add(this.btn_asal_olanlari_ver);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_us);
             this.Controls.Add(this.btn_karelerinin_toplami);
@@ -200,6 +214,7 @@ namespace iki_sayi_arasi_islemler
         private System.Windows.Forms.Button btn_karelerinin_toplami;
         private System.Windows.Forms.TextBox txt_us;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_asal_olanlari_ver;
     }
 }
 
