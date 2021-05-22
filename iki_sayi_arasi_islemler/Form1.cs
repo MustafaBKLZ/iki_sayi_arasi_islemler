@@ -83,7 +83,7 @@ namespace iki_sayi_arasi_islemler
                 for (int i = Convert.ToInt32(sayi1); i <= sayi2; i++)
                 {
                     sonuc += Math.Pow(i, 2);
-                    ListeyeEkle(sonuc + " - " + Math.Pow(i, (Convert.ToInt16(txt_us.Text))));
+                    ListeyeEkle(sonuc + " - " + Math.Pow(i, (Convert.ToInt16(txt_us.Text))));   
                 }
                 ListeyeEkle("Sonuç : " + sonuc.ToString());
             }
