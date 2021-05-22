@@ -62,8 +62,13 @@ namespace iki_sayi_arasi_islemler
         {
             listBox1.Items.Add(ekle);
         }
+        void ListeTemizle()
+        {
+            listBox1.Items.Clear();
+        }
         private void btn_toplam_ver_Click(object sender, EventArgs e)
         {
+            ListeTemizle();
             if (SayisalKontrolu())
             {
                 double sonuc = 0;
@@ -77,17 +82,22 @@ namespace iki_sayi_arasi_islemler
         }
         private void btn_karelerinin_toplami_Click(object sender, EventArgs e)
         {
+            ListeTemizle();
             if (SayisalKontrolu())
             {
-                double sonuc = 0;
+                double sonuc = 0, islem = 0;
                 for (int i = Convert.ToInt32(sayi1); i <= sayi2; i++)
                 {
-                    sonuc += Math.Pow(i, 2);
-                    ListeyeEkle(sonuc + " - " + Math.Pow(i, (Convert.ToInt16(txt_us.Text))));      
+                    islem = Math.Pow(i, (Convert.ToInt16(txt_us.Text)));
+                    sonuc += islem;
+                    ListeyeEkle(sonuc + " - " + islem);
                 }
                 ListeyeEkle("Sonuç : " + sonuc.ToString());
             }
         }
+
+
+
 
 
 
