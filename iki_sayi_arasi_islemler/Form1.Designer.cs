@@ -42,6 +42,8 @@ namespace iki_sayi_arasi_islemler
             this.txt_us = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_asal_olanlari_ver = new System.Windows.Forms.Button();
+            this.btn_sayilara_bolunebilenler = new System.Windows.Forms.Button();
+            this.txt_bolenler = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -173,11 +175,33 @@ namespace iki_sayi_arasi_islemler
             this.btn_asal_olanlari_ver.UseVisualStyleBackColor = true;
             this.btn_asal_olanlari_ver.Click += new System.EventHandler(this.btn_asal_olanlari_ver_Click);
             // 
+            // btn_sayilara_bolunebilenler
+            // 
+            this.btn_sayilara_bolunebilenler.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_sayilara_bolunebilenler.Location = new System.Drawing.Point(12, 210);
+            this.btn_sayilara_bolunebilenler.Name = "btn_sayilara_bolunebilenler";
+            this.btn_sayilara_bolunebilenler.Size = new System.Drawing.Size(289, 33);
+            this.btn_sayilara_bolunebilenler.TabIndex = 12;
+            this.btn_sayilara_bolunebilenler.Text = "Yandaki sayılara bölünebilenler";
+            this.btn_sayilara_bolunebilenler.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_sayilara_bolunebilenler.UseVisualStyleBackColor = true;
+            this.btn_sayilara_bolunebilenler.Click += new System.EventHandler(this.btn_sayilara_bolunebilenler_Click);
+            // 
+            // txt_bolenler
+            // 
+            this.txt_bolenler.Location = new System.Drawing.Point(235, 217);
+            this.txt_bolenler.Name = "txt_bolenler";
+            this.txt_bolenler.Size = new System.Drawing.Size(65, 20);
+            this.txt_bolenler.TabIndex = 13;
+            this.txt_bolenler.Text = "2,3,4,5,7";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 498);
+            this.Controls.Add(this.txt_bolenler);
+            this.Controls.Add(this.btn_sayilara_bolunebilenler);
             this.Controls.Add(this.btn_asal_olanlari_ver);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_us);
@@ -215,6 +239,8 @@ namespace iki_sayi_arasi_islemler
         private System.Windows.Forms.TextBox txt_us;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_asal_olanlari_ver;
+        private System.Windows.Forms.Button btn_sayilara_bolunebilenler;
+        private System.Windows.Forms.TextBox txt_bolenler;
     }
 }
 

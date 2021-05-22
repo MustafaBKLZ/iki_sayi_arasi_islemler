@@ -71,6 +71,8 @@ namespace iki_sayi_arasi_islemler
             }
         }
 
+
+
         private void btn_asal_olanlari_ver_Click(object sender, EventArgs e)
         {
             ListeTemizle();
@@ -102,6 +104,43 @@ namespace iki_sayi_arasi_islemler
             }
         }
 
+
+
+        private void btn_sayilara_bolunebilenler_Click(object sender, EventArgs e)
+        {
+            string[] bolenler = txt_bolenler.Text.Split(','); // kalansız bölümü kontrol etmek istediğimiz tüm sayılar
+            int[] tutanlar; // sıradaki sayı, yukarıdaki sayılardan kaç tanesine kalansız bölünebiliyor olduğunu index numarası üzerinden tutacağız
+            int tutan_adet = 0; // karşılaştırmak için kullancağız.
+            ListeTemizle();
+            if (SayisalKontrol())
+            {
+                for (double i = sayi1; i <= sayi2; i++) // iki sayı arasında dönecek
+                {
+                    // her yeni sayıda "tutan" bilgilerini sıfırlamamız gerekiyor. 
+                    tutan_adet = 0; // sıfırladık
+                    tutanlar = new int[bolenler.Count()]; // yeniden tanımladık.
+
+
+                    for (int j = 0; j < bolenler.Count(); j++) // bölenler listesindeki tüm sayıları kontrol edeceğiz.
+                    {
+                        if (i % Convert.ToInt16(bolenler[j]) == 0) // seçilmiş sayıyı, sıradaki bölen ile tam bölünüp bölünmediğini kontrol ediyoruz.
+                            tutanlar[j] = 1; // tutanları işaretliyoruz.
+                        else
+                            tutanlar[j] = 0; // tutmayanları da işaretliyoruz.
+                    }
+
+                    for (int k = 0; k < tutanlar.Count(); k++) // tutanları kontrol edeceğiz.
+                    {
+                        if (tutanlar[k] == 1) // tutanları kontrol ediyoruz.
+                            tutan_adet++; // kaç tanesi tuttu ise sayısını alıyoruz
+                    }
+                    if (tutanlar.Count() == tutan_adet) // tutanlar listsindeki kaç tanesinde kaç tane 1 olduğu ile ile tutan adetler aynı ise seçilen sayıyı tüm bölenler bölebiliyor demektir.
+                    {
+                        ListeyeEkle("Tüm bölenlere tam bölünebilen sayı : " + i.ToString());
+                    }
+                }
+            }
+        }
 
 
     }
