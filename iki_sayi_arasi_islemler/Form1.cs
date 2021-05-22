@@ -85,7 +85,6 @@ namespace iki_sayi_arasi_islemler
                         if (i % ii == 0)
                         {
                             kontrol++;
-
                             break;
                         }
                     }
@@ -98,7 +97,6 @@ namespace iki_sayi_arasi_islemler
                         sonuc += i;
                         ListeyeEkle(i.ToString() + " sayısı ASALdır");
                     }
-
                 }
                 ListeyeEkle("Asalların Toplamaı : " + sonuc.ToString());
             }
