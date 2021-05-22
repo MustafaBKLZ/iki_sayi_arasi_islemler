@@ -92,7 +92,7 @@ namespace iki_sayi_arasi_islemler
                     sonuc += islem;
                     ListeyeEkle(sonuc + " - " + islem);
                 }
-                ListeyeEkle("Sonuç : " + sonuc.ToString());
+                ListeyeEkle("Sonuç : " + sonuc.ToString());  
             }
         }
 
